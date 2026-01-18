@@ -70,6 +70,12 @@
       "type": "string",
       "minLength": 2,
       "required": true
+    },
+    "wishlists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::wishlist.wishlist",
+      "mappedBy": "users_permissions_user"
     }
   }
 }
