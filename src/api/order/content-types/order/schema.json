@@ -1,0 +1,102 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "orders"
+    },
+    "orderNumber": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "orderStatus": {
+      "type": "enumeration",
+      "required": true,
+      "default": "pending",
+      "enum": [
+        "pending",
+        "confirmed",
+        "processing",
+        "shipped",
+        "delivered",
+        "cancelled"
+      ]
+    },
+    "totalAmount": {
+      "type": "decimal",
+      "required": true,
+      "default": 0
+    },
+    "paymentMethod": {
+      "type": "enumeration",
+      "required": true,
+      "default": "cod",
+      "enum": [
+        "cod"
+      ]
+    },
+    "firstName": {
+      "type": "string",
+      "minLength": 2,
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "minLength": 2,
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "shippingAddress": {
+      "type": "text",
+      "required": true
+    },
+    "shippingCity": {
+      "type": "string",
+      "required": true
+    },
+    "shippingProvince": {
+      "type": "string",
+      "required": true
+    },
+    "shippingZip": {
+      "type": "string",
+      "required": true
+    },
+    "shippingCountry": {
+      "type": "string",
+      "default": "Pakistan",
+      "required": true
+    },
+    "notes": {
+      "type": "text"
+    },
+    "phoneNumber": {
+      "type": "string",
+      "minLength": 11,
+      "maxLength": 11,
+      "required": true
+    },
+    "order_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order-item.order-item",
+      "mappedBy": "order"
+    }
+  }
+}
