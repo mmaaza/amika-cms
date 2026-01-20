@@ -124,11 +124,6 @@ const OrderDetails: React.FC = () => {
   if (selectedOrder) {
     return (
       <Box paddingLeft={10} paddingRight={10} paddingTop={8} paddingBottom={8}>
-        <Box marginBottom={4}>
-          <Button variant="tertiary" onClick={() => setSelectedOrder(null)}>
-            ← Back to Orders
-          </Button>
-        </Box>
         <OrderDetailView order={selectedOrder} onBack={() => setSelectedOrder(null)} />
       </Box>
     );
