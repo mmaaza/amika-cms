@@ -8,8 +8,8 @@ export default ({ env }) => [
         useDefaults: true,
         directives: {
           'connect-src': ["'self'", 'https:'],
-          'img-src': ["'self'", 'data:', 'blob:', 'https:'],
-          'media-src': ["'self'", 'data:', 'blob:'],
+          'img-src': ["'self'", 'data:', 'blob:', 'https:', '*.storage.railway.app'],
+          'media-src': ["'self'", 'data:', 'blob:', '*.storage.railway.app'],
           upgradeInsecureRequests: null,
         },
       },
@@ -36,6 +36,7 @@ export default ({ env }) => [
   'strapi::body',
   'strapi::session',
   'strapi::favicon',
+  'global::s3-proxy',
   'strapi::public',
 ];
 

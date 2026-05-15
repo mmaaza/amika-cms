@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@strapi/plugin-users-permissions": "5.33.3",
+    "@strapi/provider-upload-aws-s3": "^5.46.0",
     "@strapi/strapi": "5.33.3",
     "pg": "8.8.0",
     "react": "^18.0.0",
