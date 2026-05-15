@@ -12,13 +12,9 @@ export default ({ env }) => ({
         },
         region: env('BUCKET_REGION', 'us-west-1'),
         params: {
-          ACL: 'private',
           Bucket: env('BUCKET_NAME'),
         },
       },
-      // Store relative /uploads/... paths so media is served through Strapi
-      // instead of exposing private S3 bucket URLs
-      baseUrl: env('PUBLIC_URL', env('APP_URL', `http://localhost:${env('PORT', 1337)}`)) + '/uploads',
       actionOptions: {
         upload: {},
         uploadStream: {},
